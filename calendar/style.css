@@ -1,0 +1,133 @@
+body {
+  font-family: system-ui;
+  background: #fce7f3;
+}
+
+.calendar {
+  width: 350px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.calendar__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  background-image: linear-gradient(135deg, #f9a8d4, #c084fc);
+  color: white;
+}
+
+.calendar__weekdays,
+.calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar__weekdays span {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.day {
+  min-height: 60px;
+  border: 1px solid #eee;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.day:hover {
+  background: #a855f7;
+  color: white;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+}
+
+.modal__content {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  margin: 15% auto;
+  border-radius: 12px;
+}
+
+.event-name {
+  display: block;
+  background: #f9a8d4;
+  color: #4a044e;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin-top: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-name:hover {
+  background: #f472b6;
+  color: white;
+}
+
+.day.has-event {
+  background: #fff7fb;
+}
+
+.modal__content input,
+.modal__content textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #e9d5ff;
+  font-size: 0.85rem;
+}
+
+.modal__content button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f9a8d4, #c084fc);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 5px 0px;
+}
+
+.modal__content button:hover {
+  opacity: 0.9;
+}
+
+#modalDate {
+  text-align: center;
+  color: #a855f7;
+  margin-bottom: 12px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  overflow-y: auto;
+}
+
+.modal__content {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  margin: 10vh auto;
+  border-radius: 16px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}

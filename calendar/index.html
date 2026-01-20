@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar</title>
+  <meta name="author" content="Heyllen Gamboa Gutierrez">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="calendar">
+  <header class="calendar__header">
+    <button id="prev">‹</button>
+    <h2 id="monthYear"></h2>
+    <button id="next">›</button>
+  </header>
+
+  <div class="calendar__weekdays">
+    <span>Mon</span><span>Tue</span><span>Wed</span>
+    <span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+  </div>
+
+  <div class="calendar__days" id="days"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal__content">
+    <h3 id="modalDate"></h3>
+
+    <input type="text" id="eventName" placeholder="Nombre del evento">
+    <input type="time" id="eventTime">
+    <input type="text" id="eventLocation" placeholder="Location">
+
+    <button id="saveAppointment">Guardar</button>
+    <button id="deleteAppointment">Eliminar</button>
+    <button onclick="closeModal()">Cerrar</button>
+  </div>
+</div>
+
+<script src="calendar.js"></script>
+</body>
+</html>

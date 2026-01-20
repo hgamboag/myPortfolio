@@ -1,0 +1,32 @@
+body {
+  font-family: Arial;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.forecastContainer {
+  width: 560px;
+}
+
+.forecast {
+  padding-right: 10px;
+  display: inline-block;
+}
+
+#zipForm {
+  padding: 25px 0;
+}
+
+#refreshButton {
+  margin-top: 10px;
+}

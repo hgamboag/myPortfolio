@@ -1,0 +1,112 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+table td {
+  border: none !important;
+  vertical-align: middle;
+  padding: 0.5rem;
+}
+
+tbody {
+  width: 100%;
+}
+
+tbody > tr > td:nth-child(1):nth-last-child(2) {
+  width: 33.333%;
+  text-align: right;
+  padding-right: 1rem;
+  white-space: nowrap;
+}
+
+tbody > tr > td:nth-child(2):nth-last-child(1) {
+  width: 66.666%;
+}
+
+/* Candy / Pastel Theme */
+body {
+  background: linear-gradient(135deg, #fce7f3, #e0f2fe);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Card */
+.card {
+  background: #fff7fb;
+  padding: 10px;
+  border: none;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Title */
+h3 {
+  color: #d946ef;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+
+/* Form spacing */
+.form-label {
+  margin-bottom: 0.5rem;
+  color: #a855f7;
+  font-weight: 500;
+}
+
+.form-control {
+  margin-bottom: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid #f0abfc;
+}
+
+textarea {
+  resize: vertical;
+}
+
+textarea.form-control {
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.btn-cell {
+  width: 100%;
+  display: block;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #f9a8d4, #c084fc);
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Inputs focus */
+.form-control:focus {
+  border-color: #e879f9;
+  box-shadow: 0 0 0 0.25rem rgba(232, 121, 249, 0.25);
+}
+
+/* Container spacing */
+.container {
+  padding-bottom: 3rem;
+}
+
+/* Smooth look */
+.card.shadow-lg {
+  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.2) !important;
+  border-radius: 2rem;
+}
+
+/* Extra breathing room on small screens */
+@media (max-width: 576px) {
+  .card {
+    margin: 1rem;
+  }
+}

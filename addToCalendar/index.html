@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Heyllen Gamboa Gutierrez">
+  <title>Add to Calendar</title>
+  <link rel="stylesheet" href="src/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1Dh0KX1Q1hZrj6tZT4I1Z4xE6x1oG2QG7r4l8QK7Kp" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
+</head>
+
+<body>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg rounded-4">
+          <div class="card-body p-4">
+            <h3>📅 Add to Calendar</h3>
+
+            <form id="calendarForm">
+              <table class="table">
+                <tbody>
+                  <!-- Event Title -->
+                  <tr>
+                    <td>
+                      <label class="form-label" for="title">Event Title</label>
+                    </td>
+                    <td>
+                      <input type="text" id="title" class="form-control" required>
+                    </td>
+                  </tr>
+
+                  <!-- Date -->
+                  <tr>
+                    <td>
+                      <label class="form-label" for="date">Date</label>
+                    </td>
+                    <td>
+                      <input type="date" id="date" class="form-control" required>
+                    </td>
+                  </tr>
+
+                  <!-- Start Time -->
+                  <tr>
+                    <td>
+                      <label class="form-label" for="startTime">Start</label>
+                    </td>
+                    <td>
+                      <input type="time" id="startTime" class="form-control" required>
+                    </td>
+                  </tr>
+
+                  <!-- End Time -->
+                  <tr>
+                    <td>
+                      <label class="form-label" for="endTime">End</label>
+                    </td>
+                    <td>
+                      <input type="time" id="endTime" class="form-control" required>
+                    </td>
+                  </tr>
+
+                  <!-- Location -->
+                  <tr>
+                    <td>
+                      <label class="form-label" for="location">Location</label>
+                    </td>
+                    <td>
+                      <input type="text" id="location" class="form-control">
+                    </td>
+                  </tr>
+
+                  <!-- Description -->
+                  <tr>
+                    <td>
+                      <label class="form-label" for="description">Description</label>
+                    </td>
+                    <td>
+                      <textarea id="description" class="form-control" rows="3"></textarea>
+                    </td>
+                  </tr>
+
+                  <!-- Buttons row -->
+                  <tr>
+                    <td colspan="2">
+                      <table class="table w-100">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <button type="submit" class="btn btn-primary w-100">
+                                ➕ Add to Calendar
+                              </button>
+                            </td>
+                            <td>
+                              <button type="button" id="emailBtn" class="btn btn-primary w-100">
+                                ✉️ Send by Email
+                              </button>
+                            </td>
+                            <td>
+                              <button type="button" id="refreshBtn" class="btn btn-primary w-100">
+                                🔄 Clear Form
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/app.js"></script>
+</body>
+
+</html>
