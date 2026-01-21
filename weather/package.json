@@ -3,16 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
-  "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html",
-    "pack": "npm pack"
-  },
-  "dependencies": {},
+"scripts": {
+  "start": "parcel index.html",
+  "build": "parcel build index.html --public-url /myPortfolio/weather/dist/"
+},
   "devDependencies": {
     "@babel/core": "7.14.0",
     "@babel/preset-env": "7.14.0",
     "babel-preset-env": "1.7.0",
+    "parcel": "^2.16.3",
     "parcel-bundler": "1.12.5"
   }
 }
