@@ -12,6 +12,7 @@ import rainIcon from '../img/rain.png';
 import snowIcon from '../img/snow.png';
 import sunnyIcon from '../img/sunny.png';
 import defaultIcon from '../img/default.png';
+import './styles.css';
 
 zipForm.addEventListener('submit', async function(event) {
   event.preventDefault();

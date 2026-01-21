@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="author" content="Heyllen Gamboa Gutierrez">
   <title>Weather Forecast</title>
-  <link rel="stylesheet" href="src/styles.css">
 </head>
 
 <body>
   <div id="app">
     <div class="container">
       <h1 id="regionTitle">WEATHER FORECAST FOR</h1>
+
       <form id="zipForm">
         <label for="zipCode">Enter Zip Code:</label>
-        <input type="text" id="zipCode" name="zipCode" required>
+        <input type="text" id="zipCode" name="zipCode" required />
         <button type="submit">Submit</button>
       </form>
+
       <div id="forecastContainer" style="display: none;">
         <div class="forecast" id="forecastDay1"></div>
         <div class="forecast" id="forecastDay2"></div>
         <div class="forecast" id="forecastDay3"></div>
       </div>
+
       <button id="refreshButton">Refresh</button>
     </div>
   </div>
-  <script src="../weather/src/app.js"></script>
+  <script type="module" src="./src/app.js"></script>
 </body>
-
 </html>
