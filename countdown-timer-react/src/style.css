@@ -1,0 +1,58 @@
+body {
+  background: #fce7f3;
+  font-family: system-ui;
+}
+
+/* layout */
+.timer-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-card {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.25);
+}
+
+/* title */
+.timer-card h2 {
+  color: #be185d;
+  font-weight: 700;
+}
+
+/* timer */
+.timer-display {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #9333ea;
+}
+
+.running {
+  color: #ec4899;
+  font-weight: 600;
+}
+
+.time-up {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+/* buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #f9a8d4, #c084fc);
+  border: none;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+}
+
+.btn-outline-danger {
+  border-radius: 999px;
+}
