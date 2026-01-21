@@ -5,48 +5,50 @@ const forecastDay2 = document.getElementById('forecastDay2');
 const forecastDay3 = document.getElementById('forecastDay3');
 const refreshButton = document.getElementById('refreshButton');
 const regionTitle = document.getElementById('regionTitle');
+
 const currentDate = new Date();
 const formattedDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
-import cloudyIcon from '../img/cloudy.png';
-import rainIcon from '../img/rain.png';
-import snowIcon from '../img/snow.png';
-import sunnyIcon from '../img/sunny.png';
-import defaultIcon from '../img/default.png';
-import './styles.css';
 
-zipForm.addEventListener('submit', async function(event) {
+const iconImages = {
+  cloudy: './cloudy.png',
+  rain: './rain.png',
+  snow: './snow.png',
+  sunny: './sunny.png'
+};
+const defaultIcon = './default.png';
+
+zipForm.addEventListener('submit', async (event) => {
   event.preventDefault();
-  resetForecast(); // Reset forecast elements before fetching new data
+  resetForecast();
+
   const zipCode = document.getElementById('zipCode').value;
 
   try {
-    const response = await fetch(`https://se-weather-api.herokuapp.com/api/v1/geo?zip_code=${zipCode}`); //calls the first API using the zipcode
-    if (!response.ok) {
-      throw new Error('Failed the first call to the API Zipcode');
-    }
-    const geoData = await response.json();
-    const { region, regionCode } = geoData;
-    regionTitle.textContent = `WEATHER FORECAST FOR ${region.toUpperCase()} (${regionCode.toUpperCase()})`; // Update title with region and regionCode
-    const { latitude, longitude } = geoData;
-    const forecastResponse = await fetch(`https://se-weather-api.herokuapp.com/api/v1/forecast?latitude=${latitude}&longitude=${longitude}&date=${formattedDate}`); //calls the second API using the information we get from the first API
-    if (!forecastResponse.ok) {
-      throw new Error('Failed the second call for the forecast data');
-    }
-    const forecastData = await forecastResponse.json();
+    const geoRes = await fetch(`https://se-weather-api.herokuapp.com/api/v1/geo?zip_code=${zipCode}`);
+    if (!geoRes.ok) throw new Error('Error fetching geo data');
+    const geoData = await geoRes.json();
+    const { region, regionCode, latitude, longitude } = geoData;
+
+    regionTitle.textContent = `WEATHER FORECAST FOR ${region.toUpperCase()} (${regionCode.toUpperCase()})`;
+
+    const forecastRes = await fetch(`https://se-weather-api.herokuapp.com/api/v1/forecast?latitude=${latitude}&longitude=${longitude}&date=${formattedDate}`);
+    if (!forecastRes.ok) throw new Error('Error fetching forecast data');
+    const forecastData = await forecastRes.json();
+
     renderForecast(forecastData);
     forecastContainer.style.display = 'block';
-  } catch (error) {
-    console.error('Error fetching data:', error);
+  } catch (err) {
+    console.error(err);
+    alert('Error fetching weather data. Please check the zip code.');
   }
 });
 
-refreshButton.addEventListener('click', function() {
-  resetForecast(); // Reset forecast elements
-  document.getElementById('zipCode').value = ''; // Clear zip code input field
-  regionTitle.textContent = 'WEATHER FORECAST'; // Reset title
+refreshButton.addEventListener('click', () => {
+  resetForecast();
+  document.getElementById('zipCode').value = '';
+  regionTitle.textContent = 'WEATHER FORECAST';
 });
 
-// Function to reset forecast elements
 function resetForecast() {
   forecastDay1.innerHTML = '';
   forecastDay2.innerHTML = '';
@@ -54,38 +56,31 @@ function resetForecast() {
   forecastContainer.style.display = 'none';
 }
 
-// Function to render the forecast here
 function renderForecast(data) {
   const forecastData = data?.daily?.data?.slice(0, 3) || [];
+
   forecastData.forEach((day, index) => {
     const forecastElement = document.getElementById(`forecastDay${index + 1}`);
-    if (forecastElement) {
-      const date = new Date(day.time * 1000);
-      const formattedDay = index === 0 ? 'Today:' : ['Sunday:', 'Monday:', 'Tuesday:', 'Wednesday:', 'Thursday:', 'Friday:', 'Saturday:'][date.getDay()];
-      const dayName = (day.icon).charAt(0).toUpperCase() + (day.icon).slice(1);
-      const iconImages = {
-        cloudy: '../img/cloudy.png',
-        rain: '../img/rain.png',
-        snow: '../img/snow.png',
-        sunny: '../img/sunny.png'
-      };
+    if (!forecastElement) return;
 
-      const iconUrl = iconImages[day.icon] ? iconImages[day.icon] : 'img/default.png'; // If there is no corresponding icon, use a default one
-      const highTemperature = day.temperatureHigh ? day.temperatureHigh : 'N/A'; // If there is no high temperature, display "N/A"
-      const lowTemperature = day.temperatureLow ? day.temperatureLow : 'N/A'; // If there is no low temperature, display "N/A"
+    const date = new Date(day.time * 1000);
+    const dayName = index === 0
+      ? 'Today'
+      : ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][date.getDay()];
 
-      forecastElement.innerHTML = `
-        <div class="day" style="background-color: lightblue; text-align: left; color:white; padding: 5px">${formattedDay}</div>
+    const iconUrl = iconImages[day.icon] || defaultIcon;
+    const highTemp = day.temperatureHigh ?? 'N/A';
+    const lowTemp = day.temperatureLow ?? 'N/A';
+
+    forecastElement.innerHTML = `
+      <div class="day" style="background-color: lightblue; color:white; padding: 5px">${dayName}:</div>
+      <div style="display:flex; align-items:center;">
+        <img src="${iconUrl}" alt="${day.icon}" class="icon" style="width:50px;height:50px;margin-right:10px;">
         <div>
-          <div class="image" style="display: inline-block;" >
-            <img src="${iconUrl}" alt="icon" class="icon">
-          </div>
-          <div class="details" style="width: 50%; display: inline-block; margin-right:5px;">
-            <div class="summary">${dayName}</div>
-            <div class="temperature">${highTemperature}/${lowTemperature}°F</div>
-          </div>
+          <div class="summary">${day.icon.charAt(0).toUpperCase() + day.icon.slice(1)}</div>
+          <div class="temperature">${highTemp}/${lowTemp}°F</div>
         </div>
-      `;
-    }
+      </div>
+    `;
   });
 }
