@@ -10,12 +10,12 @@ const currentDate = new Date();
 const formattedDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
 
 const iconImages = {
-  cloudy: './cloudy.png',
-  rain: './rain.png',
-  snow: './snow.png',
-  sunny: './sunny.png'
+  cloudy: './img/cloudy.png',
+  rain: './img/rain.png',
+  snow: './img/snow.png',
+  sunny: './img/sunny.png'
 };
-const defaultIcon = './default.png';
+const defaultIcon = './img/default.png';
 
 zipForm.addEventListener('submit', async (event) => {
   event.preventDefault();
