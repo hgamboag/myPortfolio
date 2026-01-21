@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/myPortfolio/countdown-timer-react/static/css/main.29f6fb0c.css",
-    "main.js": "/myPortfolio/countdown-timer-react/static/js/main.4027e8d8.js",
-    "static/js/453.a4205872.chunk.js": "/myPortfolio/countdown-timer-react/static/js/453.a4205872.chunk.js",
-    "index.html": "/myPortfolio/countdown-timer-react/index.html",
-    "main.29f6fb0c.css.map": "/myPortfolio/countdown-timer-react/static/css/main.29f6fb0c.css.map",
-    "main.4027e8d8.js.map": "/myPortfolio/countdown-timer-react/static/js/main.4027e8d8.js.map",
-    "453.a4205872.chunk.js.map": "/myPortfolio/countdown-timer-react/static/js/453.a4205872.chunk.js.map"
+    "main.css": "/myPortfolio/countdown-timer-react/build/static/css/main.29f6fb0c.css",
+    "main.js": "/myPortfolio/countdown-timer-react/build/static/js/main.4e741268.js",
+    "static/js/453.a4205872.chunk.js": "/myPortfolio/countdown-timer-react/build/static/js/453.a4205872.chunk.js",
+    "index.html": "/myPortfolio/countdown-timer-react/build/index.html",
+    "main.29f6fb0c.css.map": "/myPortfolio/countdown-timer-react/build/static/css/main.29f6fb0c.css.map",
+    "main.4e741268.js.map": "/myPortfolio/countdown-timer-react/build/static/js/main.4e741268.js.map",
+    "453.a4205872.chunk.js.map": "/myPortfolio/countdown-timer-react/build/static/js/453.a4205872.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.29f6fb0c.css",
-    "static/js/main.4027e8d8.js"
+    "static/js/main.4e741268.js"
   ]
 }
